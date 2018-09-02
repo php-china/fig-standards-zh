@@ -1,11 +1,7 @@
 PHP 框架协作组
 ====================================
 
-The idea behind the group is for project representatives to talk about the
-commonalities between our projects and find ways we can work together. Our main
-audience is each other, but we’re very aware that the rest of the PHP community
-is watching. If other folks want to adopt what we’re doing they are welcome to
-do so, but that is not the aim.
+PHP框架协作组是由一些PHP框架的开发者组成的开源组织，组织成立的目的是为了探讨各个PHP框架项目的共同之处，从而可以一起合作和研究PHP框架标准。虽然我们的主要参与者是主要的PHP框架开发者，但同时也注意到PHP社区的其他开发者可能会对我们当前的这个项目感兴趣。如果有社区的其他开发者项目参与进来，我们会非常欢迎。
 
 提议标准规范流程
 ------------------------------------
