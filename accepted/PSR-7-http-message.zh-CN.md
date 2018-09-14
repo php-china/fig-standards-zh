@@ -5,10 +5,7 @@
 
 HTTP消息是Web发展的基础。Web浏览器和HTTP客户端，例如cURL，创建HTTP请求消息，并发送到Web服务器，然后得到HTTP响应消息。服务端程序接收HTTP请求消息，处理后返回HTTP响应消息。
 
-HTTP messages are typically abstracted from the end-user consumer, but as
-developers, we typically need to know how they are structured and how to
-access or manipulate them in order to perform our tasks, whether that might be
-making a request to an HTTP API, or handling an incoming request.
+通常HTTP消息对于终端消费者来说都是不可见的，但是作为开发者，我们是需要了解HTTP消息是如何组织和构成的，以及如何获取和操作它们，从而完成相关任务。
 
 每一个HTTP请求消息有特定的格式：
 
@@ -45,16 +42,16 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
-### References
+### 参考
 
 - [RFC 2119](http://tools.ietf.org/html/rfc2119)
 - [RFC 3986](http://tools.ietf.org/html/rfc3986)
 - [RFC 7230](http://tools.ietf.org/html/rfc7230)
 - [RFC 7231](http://tools.ietf.org/html/rfc7231)
 
-## 1. Specification
+## 1. 规范
 
-### 1.1 Messages
+### 1.1 消息
 
 An HTTP message is either a request from a client to a server or a response from
 a server to a client. This specification defines interfaces for the HTTP messages
@@ -68,7 +65,7 @@ implemented directly, implementors SHOULD implement
 From here forward, the namespace `Psr\Http\Message` will be omitted when
 referring to these interfaces.
 
-### 1.2 HTTP Headers
+### 1.2 HTTP头部
 
 #### Case-insensitive header field names
 
