@@ -16,31 +16,22 @@ Host: example.com
 foo=bar&baz=bat
 ~~~
 
-The first line of a request is the "request line", and contains, in order, the
-HTTP request method, the request target (usually either an absolute URI or a
-path on the web server), and the HTTP protocol version. This is followed by one
-or more HTTP headers, an empty line, and the message body.
+HTTP请求消息的第一行为请求行，按顺序来说，包括HTTP请求方法，请求的目标地址(通常是一个绝对地址的URI或者Web服务器上的某个路径)，以及HTTP版本号。接下来是HTTP头部信息，空行，和消息体。
 
-HTTP response messages have a similar structure:
+HTTP响应消息有类似的结构：
 
 ~~~http
 HTTP/1.1 200 OK
 Content-Type: text/plain
 
-This is the response body
+HTTP响应消息体内容
 ~~~
 
-The first line is the "status line", and contains, in order, the HTTP protocol
-version, the HTTP status code, and a "reason phrase," a human-readable
-description of the status code. Like the request message, this is then
-followed by one or more HTTP headers, an empty line, and the message body.
+HTTP响应消息的第一行为状态行，按顺序来说，包括HTTP版本号，HTTP状态码和对状态码解释的描述文本。接下来是HTTP头部信息，空行，以及消息体。
 
-The interfaces described in this document are abstractions around HTTP messages
-and the elements composing them.
+本规范提供的接口是HTTP消息以及组成HTTP消息的元素的抽象。
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
+本规范中使用的`必须`，`不得`，`需要`，`应`，`不应`，`应该`，`不应该`，`推荐`，`可能`和`可选`等关键词可以参照[RFC 2119](http://tools.ietf.org/html/rfc2119)中的解释进行理解。
 
 ### 参考
 
@@ -53,22 +44,16 @@ interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
 ### 1.1 消息
 
-An HTTP message is either a request from a client to a server or a response from
-a server to a client. This specification defines interfaces for the HTTP messages
-`Psr\Http\Message\RequestInterface` and `Psr\Http\Message\ResponseInterface` respectively.
+一个HTTP消息是指来自客户端到服务端的请求或者服务端到客户端的响应。本规范为HTTP消息定义了以下两个接口`Psr\Http\Message\RequestInterface` 和 `Psr\Http\Message\ResponseInterface`。接口`Psr\Http\Message\RequestInterface` 和 `Psr\Http\Message\ResponseInterface` 继承自接口
+`Psr\Http\Message\MessageInterface`。虽然接口`Psr\Http\Message\MessageInterface` M可能会被直接实现，实现者应该实现接口`Psr\Http\Message\RequestInterface` 和  `Psr\Http\Message\ResponseInterface`。
 
-Both `Psr\Http\Message\RequestInterface` and `Psr\Http\Message\ResponseInterface` extend
-`Psr\Http\Message\MessageInterface`. While `Psr\Http\Message\MessageInterface` MAY be
-implemented directly, implementors SHOULD implement
-`Psr\Http\Message\RequestInterface` and `Psr\Http\Message\ResponseInterface`.
-
-From here forward, the namespace `Psr\Http\Message` will be omitted when
-referring to these interfaces.
+从这里开始，当涉及到以上接口时，为了方便，命名空间`Psr\Http\Message`将会被省略。
 
 ### 1.2 HTTP头部
 
-#### Case-insensitive header field names
+#### 字段名称不区分大小写
 
+HTTP消息
 HTTP messages include case-insensitive header field names. Headers are retrieved
 by name from classes implementing the `MessageInterface` in a case-insensitive
 manner. For example, retrieving the `foo` header will return the same result as
